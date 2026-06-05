@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #003366;
+  --color-secondary: #ff9900;
+  --color-accent: #f8f9fa;
+  --color-dark: #1a1a1a;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white text-dark font-sans;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+  }
+}
+
+/* Custom utilities */
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(0, 51, 102, 0.9) 0%, rgba(0, 51, 102, 0.7) 100%);
+}
+
+.tracking-step-active {
+  @apply text-primary font-bold border-primary;
+}
+
+.tracking-step-inactive {
+  @apply text-gray-400 border-gray-300;
+}
