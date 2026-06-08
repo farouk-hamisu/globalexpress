@@ -9,8 +9,10 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import { format } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
+  const navigate = useNavigate();
   const { data: stats, isLoading } = useQuery({
     queryKey: ['admin-stats'],
     queryFn: async () => {
@@ -174,7 +176,10 @@ const AdminDashboard = () => {
             <div className="relative z-10">
               <h3 className="text-xl font-black mb-3 uppercase tracking-tight">Create Manifest</h3>
               <p className="text-white/60 text-[11px] font-bold mb-8 leading-relaxed uppercase tracking-wider">Initialize new logistics entries with optimized network forms.</p>
-              <button className="bg-secondary text-primary px-8 py-4 rounded-2xl font-black text-xs hover:bg-white transition-all w-full uppercase tracking-[0.2em] shadow-lg shadow-black/20 transform hover:-translate-y-1 active:scale-95">
+              <button 
+                onClick={() => navigate('/admin/shipments', { state: { openForm: true } })}
+                className="bg-secondary text-primary px-8 py-4 rounded-2xl font-black text-xs hover:bg-white transition-all w-full uppercase tracking-[0.2em] shadow-lg shadow-black/20 transform hover:-translate-y-1 active:scale-95"
+              >
                 New Shipment
               </button>
             </div>

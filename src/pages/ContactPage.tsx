@@ -65,8 +65,12 @@ const ContactPage = () => {
           <div className="lg:col-span-1 space-y-6">
             <ContactInfoCard 
               icon={<Phone className="text-secondary" />}
-              title="Call Us"
-              details="+1 (234) 567-890"
+              title="WhatsApp Us"
+              details={
+                <a href="https://wa.me/18502816053" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
+                  +1 (850) 281-6053
+                </a>
+              }
               subDetails="Mon-Fri, 24 Hours"
             />
             <ContactInfoCard 
@@ -150,7 +154,7 @@ const ContactPage = () => {
   );
 };
 
-const ContactInfoCard = ({ icon, title, details, subDetails }: { icon: React.ReactNode, title: string, details: string, subDetails: string }) => (
+const ContactInfoCard = ({ icon, title, details, subDetails }: { icon: React.ReactNode, title: string, details: React.ReactNode, subDetails: string }) => (
   <div className="bg-white p-8 rounded-2xl shadow-md border border-gray-100 flex items-start gap-6">
     <div className="shrink-0 w-14 h-14 bg-accent rounded-xl flex items-center justify-center">
       {icon}

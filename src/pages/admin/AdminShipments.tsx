@@ -12,7 +12,8 @@ import {
   History
 } from 'lucide-react';
 import { format } from 'date-fns';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import ShipmentForm from '../../components/admin/ShipmentForm';
 import StatusUpdateModal from '../../components/admin/StatusUpdateModal';
@@ -24,6 +25,16 @@ const AdminShipments = () => {
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
   const [selectedShipment, setSelectedShipment] = useState<Shipment | undefined>(undefined);
   const queryClient = useQueryClient();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.state?.openForm) {
+      handleCreate();
+      // Clear state to prevent reopening on refresh
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.state, navigate, location.pathname]);
 
   const { data: shipments, isLoading } = useQuery({
     queryKey: ['admin-shipments'],
