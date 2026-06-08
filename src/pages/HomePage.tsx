@@ -3,7 +3,7 @@ import {
   Search, Ship, Plane, Truck, Shield, Globe, 
   ArrowRight, 
   Headphones, Briefcase, 
-  ChevronRight, Play
+  ChevronRight, Play, Hash
 } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -79,94 +79,118 @@ const HomePage = () => {
 
   return (
     <div className="flex flex-col bg-white overflow-hidden">
-      {/* Cinematic Hero 2.0 */}
-      <section className="relative min-h-[90vh] flex items-center pt-20 pb-32">
-        {/* Background Overlay */}
+      {/* Cinematic Hero 3.0 - Professional Redesign */}
+      <section className="relative min-h-[95vh] flex items-center pt-20 pb-32 overflow-hidden">
+        {/* Advanced Background Layer */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1512310604669-443f86c570b3?auto=format&fit=crop&q=90&w=2000" 
-            alt="Global Logistics" 
-            className="w-full h-full object-cover scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40"></div>
+          <motion.div 
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="w-full h-full"
+          >
+            <img 
+              src="/hero.jpg" 
+              alt="Global Logistics Hub" 
+              className="w-full h-full object-cover object-center"
+            />
+          </motion.div>
+          
+          {/* Refined Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/40 to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-primary/20 z-10"></div>
+          
+          {/* Animated Particles/Accents for Depth */}
+          <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] animate-pulse z-10"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-primary/20 rounded-full blur-[80px] z-10"></div>
         </div>
 
-        <div className="container mx-auto px-4 relative z-10 text-white">
+        <div className="container mx-auto px-4 relative z-20">
           <motion.div 
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="max-w-4xl"
+            className="max-w-3xl"
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 bg-secondary/20 backdrop-blur-sm border border-secondary/30 px-4 py-2 rounded-full mb-6">
-              <Ship size={14} className="text-secondary animate-pulse" />
-              <span className="text-xs font-black tracking-widest uppercase">Next-Gen Logistics Network</span>
+            {/* Premium Badge */}
+            <motion.div 
+              variants={itemVariants} 
+              className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md border border-white/20 px-5 py-2.5 rounded-2xl mb-8 shadow-2xl"
+            >
+              <div className="relative">
+                <Globe size={16} className="text-secondary animate-[spin_4s_linear_infinite]" />
+                <div className="absolute inset-0 bg-secondary/40 blur-md rounded-full animate-ping"></div>
+              </div>
+              <span className="text-[10px] font-black tracking-[0.2em] uppercase text-white/90">Global Supply Chain Excellence</span>
             </motion.div>
             
-            <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl font-black mb-5 leading-[0.95] tracking-tighter">
-              MASTERING THE <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-orange-400">GLOBAL FLOW.</span>
+            <motion.h1 
+              variants={itemVariants} 
+              className="text-4xl md:text-7xl font-light italic mb-6 leading-[1.05] tracking-tight text-white drop-shadow-2xl"
+            >
+              NAVIGATING THE <br />
+              <span className="text-secondary relative font-black not-italic tracking-tighter">
+                FUTURE OF FLOW.
+                <div className="absolute -bottom-2 left-0 w-24 h-1.5 bg-secondary rounded-full"></div>
+              </span>
             </motion.h1>
             
-            <motion.p variants={itemVariants} className="text-base md:text-lg mb-8 text-white/80 max-w-2xl font-medium leading-relaxed">
-              We don't just ship packages; we engineer the supply chains that move the modern world. Precision, scale, and uncompromising reliability.
+            <motion.p 
+              variants={itemVariants} 
+              className="text-base md:text-xl mb-12 text-white/80 max-w-xl font-light italic leading-relaxed drop-shadow-md"
+            >
+              Engineered for precision. Scaled for impact. We transform complex global logistics into a seamless, predictable engine for your business growth.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <Link to="/contact" className="bg-secondary text-primary px-6 py-3 rounded-xl font-black text-sm hover:bg-white transition-all shadow-2xl flex items-center space-x-3 group">
-                <span>GET A QUOTE</span>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-5">
+              <Link to="/contact" className="bg-secondary text-primary px-10 py-5 rounded-[1.25rem] font-black text-sm hover:bg-white hover:scale-105 transition-all shadow-[0_20px_40px_-10px_rgba(255,153,0,0.5)] flex items-center space-x-4 group relative overflow-hidden">
+                <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+                <span className="relative z-10">START SHIPPING</span>
+                <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform relative z-10" />
               </Link>
-              <button className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-black text-sm hover:bg-white/20 transition-all flex items-center space-x-3">
-                <Play size={16} className="fill-white" />
-                <span>HOW IT WORKS</span>
-              </button>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Floating Tracking Hub */}
-      <section className="relative z-20 -mt-12 px-4">
+      {/* Re-engineered Tracking Hub - More Integrated Look */}
+      <section className="relative z-30 -mt-20 px-4">
         <div className="container mx-auto">
           <motion.div 
-            initial={{ y: 50, opacity: 0 }}
+            initial={{ y: 60, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="glass-panel p-5 md:p-7 rounded-[1.25rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border-white/10"
+            className="bg-white p-6 md:p-8 rounded-[2rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border border-gray-100 flex flex-col lg:flex-row items-center gap-8"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
-              <div className="lg:col-span-4 border-r border-gray-100 pr-8 hidden lg:block">
-                <h3 className="text-lg font-black text-primary mb-1">Track & Trace</h3>
-                <p className="text-gray-400 font-medium italic text-[10px]">Instant visibility for every mile.</p>
+            <div className="lg:w-1/3 flex items-center space-x-6 pr-8 lg:border-r border-gray-100">
+              <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center shrink-0">
+                <Hash size={28} className="text-primary" />
               </div>
-              
-              <div className="lg:col-span-8">
-                <form onSubmit={handleTrack} className="group flex flex-col sm:block">
-                  <div className="relative">
-                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
-                      <Search size={18} strokeWidth={3} />
-                    </div>
-                    <input 
-                      type="text" 
-                      placeholder="Enter Tracking ID (e.g. GEL784521963US)" 
-                      className="w-full pl-11 pr-6 sm:pr-32 py-3.5 bg-gray-50 border-2 border-gray-100 rounded-lg text-dark text-sm focus:ring-4 focus:ring-secondary/20 focus:border-secondary outline-none font-bold transition-all placeholder:text-gray-300"
-                      value={trackingNumber}
-                      onChange={(e) => setTrackingNumber(e.target.value)}
-                    />
-                    <button type="submit" className="hidden sm:block absolute right-1.5 top-1.5 bottom-1.5 bg-primary text-white px-5 rounded-md font-black text-xs hover:bg-dark transition-all shadow-xl active:scale-95">
-                      TRACK
-                    </button>
-                  </div>
-                  <button type="submit" className="sm:hidden mt-3 w-full bg-primary text-white py-3 rounded-lg font-black text-sm hover:bg-dark transition-all shadow-xl active:scale-95">
-                    TRACK SHIPMENT
-                  </button>
-                </form>
-                <div className="mt-4 flex items-center space-x-6 text-sm font-bold text-gray-400 uppercase tracking-widest px-4">
-                  <span className="flex items-center space-x-2"><div className="w-2 h-2 bg-green-500 rounded-full"></div> <span>Live Updates</span></span>
-                  <span className="flex items-center space-x-2"><div className="w-2 h-2 bg-blue-500 rounded-full"></div> <span>SMS Alerts</span></span>
+              <div>
+                <h3 className="text-xl font-black text-primary">Live Tracking</h3>
+                <p className="text-gray-400 font-bold uppercase text-[9px] tracking-widest mt-0.5">Real-time GPS visibility</p>
+              </div>
+            </div>
+            
+            <div className="lg:w-2/3 w-full">
+              <form onSubmit={handleTrack} className="flex flex-col sm:flex-row gap-4">
+                <div className="relative flex-grow group">
+                  <Search className="absolute left-5 top-1/2 -translate-y-1/2 text-gray-300 group-focus-within:text-primary transition-colors" size={20} />
+                  <input 
+                    type="text" 
+                    placeholder="Enter Tracking ID (e.g. GEL784...)" 
+                    className="w-full pl-14 pr-6 py-5 bg-gray-50 border border-gray-100 rounded-2xl text-dark text-sm focus:ring-4 focus:ring-secondary/10 focus:border-secondary outline-none font-bold transition-all placeholder:text-gray-300"
+                    value={trackingNumber}
+                    onChange={(e) => setTrackingNumber(e.target.value)}
+                  />
                 </div>
+                <button type="submit" className="bg-primary text-white px-10 py-5 rounded-2xl font-black text-sm hover:bg-dark transition-all shadow-xl active:scale-95 shrink-0">
+                  TRACK SHIPMENT
+                </button>
+              </form>
+              <div className="mt-4 flex items-center space-x-6 text-sm font-bold text-gray-400 uppercase tracking-widest px-4">
+                <span className="flex items-center space-x-2"><div className="w-2 h-2 bg-green-500 rounded-full"></div> <span>Live Updates</span></span>
+                <span className="flex items-center space-x-2"><div className="w-2 h-2 bg-blue-500 rounded-full"></div> <span>SMS Alerts</span></span>
               </div>
             </div>
           </motion.div>

@@ -11,6 +11,12 @@
   --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
 }
 
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 @layer base {
   body {
     @apply bg-white text-dark font-sans text-sm md:text-base;

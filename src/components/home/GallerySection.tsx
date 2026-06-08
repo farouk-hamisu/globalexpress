@@ -12,7 +12,7 @@ const images = [
     size: "small"
   },
   {
-    url: "https://images.unsplash.com/photo-1521331015254-842b1f3ff5ef?auto=format&fit=crop&q=80&w=800",
+    url: "/packagehandling.jpeg",
     title: "Package Handling",
     size: "small"
   },
@@ -22,7 +22,7 @@ const images = [
     size: "medium"
   },
   {
-    url: "https://images.unsplash.com/photo-1494412574005-4811f29f9543?auto=format&fit=crop&q=80&w=1200",
+    url: "/industrialoperations.jpeg",
     title: "Industrial Operations",
     size: "large"
   },
@@ -32,7 +32,7 @@ const images = [
     size: "small"
   },
   {
-    url: "https://images.unsplash.com/photo-1512310604669-443f86c570b3?auto=format&fit=crop&q=80&w=800",
+    url: "/containerport.jpeg",
     title: "Container Port",
     size: "medium"
   },
@@ -62,12 +62,12 @@ const images = [
     size: "small"
   },
   {
-    url: "https://images.unsplash.com/photo-1570675621549-4467d0efdb0c?auto=format&fit=crop&q=80&w=800",
+    url: "/cargoplane.jpeg",
     title: "Cargo Plane",
     size: "medium"
   },
   {
-    url: "https://images.unsplash.com/photo-1473445733995-882ed5544ad4?auto=format&fit=crop&q=80&w=800",
+    url: "/oceanvessel.jpeg",
     title: "Ocean Vessel",
     size: "small"
   },

@@ -3,7 +3,7 @@ import { Package, Calendar, CheckCircle2 } from 'lucide-react';
 
 const deliveries = [
   {
-    image: "https://images.unsplash.com/photo-1512428559083-560df99d73ad?auto=format&fit=crop&q=80&w=800",
+    image: "/electronics.jpeg",
     type: "Electronics",
     origin: "China",
     destination: "Germany",
@@ -27,7 +27,7 @@ const deliveries = [
     date: "May 31, 2026"
   },
   {
-    image: "https://images.unsplash.com/photo-1589363412213-33242944b58e?auto=format&fit=crop&q=80&w=800",
+    image: "/businessdocuments.jpeg",
     type: "Business Documents",
     origin: "United Kingdom",
     destination: "France",
@@ -35,7 +35,7 @@ const deliveries = [
     date: "May 30, 2026"
   },
   {
-    image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800",
+    image: "/retailsgoods.jpeg",
     type: "Retail Goods",
     origin: "Vietnam",
     destination: "Italy",
@@ -43,7 +43,7 @@ const deliveries = [
     date: "May 29, 2026"
   },
   {
-    image: "https://images.unsplash.com/photo-1565106430482-8f6e74349ca1?auto=format&fit=crop&q=80&w=800",
+    image: "/luxurycar.jpeg",
     type: "Luxury Automotive",
     origin: "Germany",
     destination: "UAE",
@@ -59,7 +59,7 @@ const deliveries = [
     date: "May 27, 2026"
   },
   {
-    image: "https://images.unsplash.com/photo-1621446173495-90962f03be67?auto=format&fit=crop&q=80&w=800",
+    image: "/pharmacy.jpeg",
     type: "Pharmaceuticals",
     origin: "Switzerland",
     destination: "South Africa",

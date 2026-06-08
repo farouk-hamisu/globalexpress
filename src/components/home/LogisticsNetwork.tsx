@@ -57,7 +57,7 @@ export const LogisticsNetwork = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                src="https://images.unsplash.com/photo-1494412574005-4811f29f9543?auto=format&fit=crop&q=80&w=800" 
+                src="/hero.jpg" 
                 alt="Logistics Port" 
                 className="rounded-[2.5rem] shadow-2xl h-80 w-full object-cover"
               />
@@ -82,7 +82,7 @@ export const LogisticsNetwork = () => {
             desc="Dominating the major oceanic trade routes with deep-water terminal access."
           />
           <NetworkBlock 
-            image="https://images.unsplash.com/photo-1512310604669-443f86c570b3?auto=format&fit=crop&q=80&w=800"
+            image="/airpothubs.jpeg"
             title="Airport Hubs"
             desc="24/7 air cargo operations at all major international aviation gateways."
           />
