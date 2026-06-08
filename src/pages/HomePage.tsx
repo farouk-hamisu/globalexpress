@@ -104,22 +104,22 @@ const HomePage = () => {
               <span className="text-xs font-black tracking-widest uppercase">Next-Gen Logistics Network</span>
             </motion.div>
             
-            <motion.h1 variants={itemVariants} className="text-6xl md:text-8xl font-black mb-8 leading-[0.95] tracking-tighter">
+            <motion.h1 variants={itemVariants} className="text-3xl md:text-4xl font-black mb-5 leading-[0.95] tracking-tighter">
               MASTERING THE <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-orange-400">GLOBAL FLOW.</span>
             </motion.h1>
             
-            <motion.p variants={itemVariants} className="text-xl md:text-2xl mb-12 text-white/80 max-w-2xl font-medium leading-relaxed">
+            <motion.p variants={itemVariants} className="text-base md:text-lg mb-8 text-white/80 max-w-2xl font-medium leading-relaxed">
               We don't just ship packages; we engineer the supply chains that move the modern world. Precision, scale, and uncompromising reliability.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <Link to="/contact" className="bg-secondary text-primary px-10 py-5 rounded-2xl font-black text-lg hover:bg-white transition-all shadow-2xl flex items-center space-x-3 group">
+              <Link to="/contact" className="bg-secondary text-primary px-6 py-3 rounded-xl font-black text-sm hover:bg-white transition-all shadow-2xl flex items-center space-x-3 group">
                 <span>GET A QUOTE</span>
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              <button className="bg-white/10 backdrop-blur-md border border-white/20 px-10 py-5 rounded-2xl font-black text-lg hover:bg-white/20 transition-all flex items-center space-x-3">
-                <Play size={20} className="fill-white" />
+              <button className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-3 rounded-xl font-black text-sm hover:bg-white/20 transition-all flex items-center space-x-3">
+                <Play size={16} className="fill-white" />
                 <span>HOW IT WORKS</span>
               </button>
             </motion.div>
@@ -128,34 +128,39 @@ const HomePage = () => {
       </section>
 
       {/* Floating Tracking Hub */}
-      <section className="relative z-20 -mt-24 px-4">
+      <section className="relative z-20 -mt-12 px-4">
         <div className="container mx-auto">
           <motion.div 
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="glass-panel p-8 md:p-12 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border-white/10"
+            className="glass-panel p-5 md:p-7 rounded-[1.25rem] shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] border-white/10"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               <div className="lg:col-span-4 border-r border-gray-100 pr-8 hidden lg:block">
-                <h3 className="text-3xl font-black text-primary mb-2">Track & Trace</h3>
-                <p className="text-gray-500 font-medium italic">Instant visibility for every mile of the journey.</p>
+                <h3 className="text-lg font-black text-primary mb-1">Track & Trace</h3>
+                <p className="text-gray-400 font-medium italic text-[10px]">Instant visibility for every mile.</p>
               </div>
               
               <div className="lg:col-span-8">
-                <form onSubmit={handleTrack} className="relative group">
-                  <div className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
-                    <Search size={28} strokeWidth={3} />
+                <form onSubmit={handleTrack} className="group flex flex-col sm:block">
+                  <div className="relative">
+                    <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary transition-colors">
+                      <Search size={18} strokeWidth={3} />
+                    </div>
+                    <input 
+                      type="text" 
+                      placeholder="Enter Tracking ID (e.g. GEL784521963US)" 
+                      className="w-full pl-11 pr-6 sm:pr-32 py-3.5 bg-gray-50 border-2 border-gray-100 rounded-lg text-dark text-sm focus:ring-4 focus:ring-secondary/20 focus:border-secondary outline-none font-bold transition-all placeholder:text-gray-300"
+                      value={trackingNumber}
+                      onChange={(e) => setTrackingNumber(e.target.value)}
+                    />
+                    <button type="submit" className="hidden sm:block absolute right-1.5 top-1.5 bottom-1.5 bg-primary text-white px-5 rounded-md font-black text-xs hover:bg-dark transition-all shadow-xl active:scale-95">
+                      TRACK
+                    </button>
                   </div>
-                  <input 
-                    type="text" 
-                    placeholder="Enter Tracking ID (e.g. GEL784521963US)" 
-                    className="w-full pl-16 pr-44 py-7 bg-gray-50 border-2 border-gray-100 rounded-3xl text-dark text-xl focus:ring-4 focus:ring-secondary/20 focus:border-secondary outline-none font-bold transition-all placeholder:text-gray-300"
-                    value={trackingNumber}
-                    onChange={(e) => setTrackingNumber(e.target.value)}
-                  />
-                  <button type="submit" className="absolute right-3 top-3 bottom-3 bg-primary text-white px-10 rounded-2xl font-black text-lg hover:bg-dark transition-all shadow-xl active:scale-95">
-                    TRACK
+                  <button type="submit" className="sm:hidden mt-3 w-full bg-primary text-white py-3 rounded-lg font-black text-sm hover:bg-dark transition-all shadow-xl active:scale-95">
+                    TRACK SHIPMENT
                   </button>
                 </form>
                 <div className="mt-4 flex items-center space-x-6 text-sm font-bold text-gray-400 uppercase tracking-widest px-4">
@@ -187,7 +192,7 @@ const HomePage = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-2xl">
-              <h2 className="text-5xl md:text-6xl font-black text-primary mb-6 tracking-tighter uppercase">Our Capabilities.</h2>
+              <h2 className="text-3xl md:text-4xl font-black text-primary mb-6 tracking-tighter uppercase">Our Capabilities.</h2>
               <p className="text-xl text-gray-500 font-medium">From complex oversized cargo to sensitive pharmaceutical transport, we have the fleet and the expertise to deliver anything, anywhere.</p>
             </div>
             <Link to="/contact" className="text-primary font-black flex items-center space-x-2 group border-b-4 border-secondary pb-1">
@@ -233,9 +238,9 @@ const HomePage = () => {
       <section className="py-32 bg-primary text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 skew-x-12 translate-x-20"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-24">
-            <h2 className="text-5xl font-black mb-6 tracking-tight uppercase">Logistics Simplified.</h2>
-            <p className="text-white/60 text-lg font-medium italic">Four steps to seamless global delivery.</p>
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-3xl font-black mb-6 tracking-tight uppercase">Logistics Simplified.</h2>
+            <p className="text-white/60 text-base font-medium italic">Four steps to seamless global delivery.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
@@ -278,7 +283,7 @@ const HomePage = () => {
                   className="rounded-[3rem] shadow-2xl"
                 />
                 <div className="absolute -bottom-10 -right-10 bg-secondary p-8 rounded-3xl shadow-2xl hidden md:block">
-                  <div className="text-4xl font-black text-primary leading-tight">25+</div>
+                  <div className="text-3xl font-black text-primary leading-tight">25+</div>
                   <div className="text-xs font-bold text-primary/60 uppercase tracking-widest mt-1">Years of <br />Excellence</div>
                 </div>
               </div>
@@ -286,8 +291,8 @@ const HomePage = () => {
             </div>
             
             <div className="lg:w-1/2">
-              <h2 className="text-5xl md:text-6xl font-black text-primary mb-10 tracking-tighter leading-none uppercase">Engineered for <br /><span className="text-secondary">Efficiency.</span></h2>
-              <p className="text-xl text-gray-500 font-medium mb-12 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-black text-primary mb-10 tracking-tighter leading-none uppercase">Engineered for <br /><span className="text-secondary">Efficiency.</span></h2>
+              <p className="text-lg text-gray-500 font-medium mb-12 leading-relaxed">
                 Global Express combines traditional logistics expertise with cutting-edge digital tracking to provide a shipping experience that is predictable, secure, and infinitely scalable.
               </p>
 
@@ -335,8 +340,8 @@ const HomePage = () => {
               </div>
             </div>
             <div className="relative z-10 max-w-3xl mx-auto">
-              <h2 className="text-4xl md:text-6xl font-black mb-8 leading-tight tracking-tighter uppercase">Ready to move <br />your cargo?</h2>
-              <p className="text-white/60 text-xl mb-12 font-medium">Join 5,000+ businesses who trust us for their global operations. Get a tailored quote in less than 5 minutes.</p>
+              <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight tracking-tighter uppercase">Ready to move <br />your cargo?</h2>
+              <p className="text-white/60 text-lg mb-10 font-medium">Join 5,000+ businesses who trust us for their global operations. Get a tailored quote in less than 5 minutes.</p>
               <div className="flex flex-wrap justify-center gap-6">
                 <Link to="/contact" className="bg-secondary text-primary px-12 py-5 rounded-2xl font-black text-xl hover:bg-white transition-all shadow-2xl flex items-center space-x-3 group">
                   <span>GET STARTED NOW</span>

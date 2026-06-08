@@ -52,8 +52,8 @@ const ServiceModal = ({ isOpen, onClose, service }: ServiceModalProps) => {
                   <span className="text-xs font-black uppercase tracking-widest">Premium Service</span>
                 </div>
                 
-                <h2 className="text-4xl font-black text-primary mb-6 tracking-tighter uppercase">{service.title}</h2>
-                <p className="text-gray-500 font-medium leading-relaxed mb-10 italic">
+                <h2 className="text-3xl font-black text-primary mb-4 tracking-tighter uppercase">{service.title}</h2>
+                <p className="text-gray-500 font-medium text-base mb-8 italic">
                   {service.desc}
                 </p>
 

@@ -83,7 +83,7 @@ export const GallerySection = () => {
     <section className="py-32 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-black text-primary mb-6 tracking-tighter">GLOBAL DELIVERIES IN ACTION</h2>
+          <h2 className="text-3xl md:text-4xl font-black text-primary mb-6 tracking-tighter">GLOBAL DELIVERIES IN ACTION</h2>
           <p className="text-xl text-gray-500 font-medium max-w-2xl mx-auto italic">
             Explore our worldwide logistics network and successful deliveries across continents.
           </p>

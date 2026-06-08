@@ -7,11 +7,11 @@ export const LogisticsNetwork = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-24 mb-32">
           <div className="lg:w-1/2 order-2 lg:order-1">
-            <h2 className="text-5xl md:text-7xl font-black text-primary mb-10 tracking-tighter leading-[0.9] uppercase">
+            <h2 className="text-4xl md:text-5xl font-black text-primary mb-10 tracking-tighter leading-[0.9] uppercase">
               Our Global <br />
               <span className="text-secondary">Logistics Network</span>
             </h2>
-            <p className="text-xl text-gray-500 font-medium mb-12 leading-relaxed italic">
+            <p className="text-lg text-gray-500 font-medium mb-12 leading-relaxed italic">
               Connecting businesses and individuals through a reliable worldwide shipping infrastructure. Our network is designed for speed, scale, and uncompromising security.
             </p>
             
@@ -20,33 +20,33 @@ export const LogisticsNetwork = () => {
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-primary group-hover:bg-secondary transition-colors">
                   <Globe size={24} />
                 </div>
-                <h4 className="font-black text-xl text-primary uppercase tracking-tighter">Countries Served</h4>
-                <div className="text-4xl font-black text-secondary">220+</div>
-                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-tight">A truly borderless <br />shipping network.</p>
+                <h4 className="font-black text-lg text-primary uppercase tracking-tighter">Countries Served</h4>
+                <div className="text-3xl font-black text-secondary">220+</div>
+                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest leading-tight">A truly borderless <br />shipping network.</p>
               </div>
               <div className="space-y-4">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-primary group-hover:bg-secondary transition-colors">
                   <Target size={24} />
                 </div>
-                <h4 className="font-black text-xl text-primary uppercase tracking-tighter">Active Routes</h4>
-                <div className="text-4xl font-black text-secondary">15,000+</div>
-                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-tight">Optimized paths <br />for every delivery.</p>
+                <h4 className="font-black text-lg text-primary uppercase tracking-tighter">Active Routes</h4>
+                <div className="text-3xl font-black text-secondary">15,000+</div>
+                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest leading-tight">Optimized paths <br />for every delivery.</p>
               </div>
               <div className="space-y-4 pt-4">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-primary group-hover:bg-secondary transition-colors">
                   <Package size={24} />
                 </div>
-                <h4 className="font-black text-xl text-primary uppercase tracking-tighter">Annual Shipments</h4>
-                <div className="text-4xl font-black text-secondary">2.5M+</div>
-                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-tight">Moving the world <br />at scale.</p>
+                <h4 className="font-black text-lg text-primary uppercase tracking-tighter">Annual Shipments</h4>
+                <div className="text-3xl font-black text-secondary">2.5M+</div>
+                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest leading-tight">Moving the world <br />at scale.</p>
               </div>
               <div className="space-y-4 pt-4">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center text-primary group-hover:bg-secondary transition-colors">
                   <Shield size={24} />
                 </div>
-                <h4 className="font-black text-xl text-primary uppercase tracking-tighter">Global Partners</h4>
-                <div className="text-4xl font-black text-secondary">500+</div>
-                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest leading-tight">Trusted network <br />of excellence.</p>
+                <h4 className="font-black text-lg text-primary uppercase tracking-tighter">Global Partners</h4>
+                <div className="text-3xl font-black text-secondary">500+</div>
+                <p className="text-xs text-gray-400 font-bold uppercase tracking-widest leading-tight">Trusted network <br />of excellence.</p>
               </div>
             </div>
           </div>

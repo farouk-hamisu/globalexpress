@@ -118,18 +118,28 @@ const AdminFees = () => {
 
   return (
     <div className="space-y-8">
-      {/* Tabs */}
-      <div className="flex p-1 bg-white rounded-2xl shadow-sm border border-gray-100 w-fit">
-        <TabButton active={activeTab === 'fees'} onClick={() => setActiveTab('fees')} icon={<CreditCard size={18} />} label="Outstanding Fees" />
-        <TabButton active={activeTab === 'payments'} onClick={() => setActiveTab('payments')} icon={<FileText size={18} />} label="Payment Proofs" />
-        <TabButton active={activeTab === 'wallets'} onClick={() => setActiveTab('wallets')} icon={<Wallet size={18} />} label="Wallet Management" />
+      <div className="flex justify-between items-center">
+        <div className="flex p-1 bg-white rounded-2xl shadow-sm border border-gray-100 w-fit">
+          <TabButton active={activeTab === 'fees'} onClick={() => setActiveTab('fees')} icon={<CreditCard size={18} />} label="Outstanding Fees" />
+          <TabButton active={activeTab === 'payments'} onClick={() => setActiveTab('payments')} icon={<FileText size={18} />} label="Payment Proofs" />
+          <TabButton active={activeTab === 'wallets'} onClick={() => setActiveTab('wallets')} icon={<Wallet size={18} />} label="Wallet Management" />
+        </div>
+        {activeTab === 'fees' && (
+          <div className="text-sm text-gray-500 font-medium italic">
+            * Fees can also be added directly within each shipment's edit form.
+          </div>
+        )}
       </div>
 
       {activeTab === 'fees' && (
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+            <h3 className="font-black text-primary uppercase tracking-wider text-sm">Global Fee Records</h3>
+            <div className="text-xs font-bold text-gray-400 uppercase tracking-widest">Total Active Fees: {fees?.length || 0}</div>
+          </div>
           <table className="w-full text-left">
             <thead>
-              <tr className="bg-gray-50 text-xs uppercase text-gray-400 font-bold border-b border-gray-100">
+              <tr className="bg-white text-[10px] uppercase text-gray-400 font-bold border-b border-gray-100">
                 <th className="px-6 py-4">Shipment</th>
                 <th className="px-6 py-4">Fee Details</th>
                 <th className="px-6 py-4">Amount</th>

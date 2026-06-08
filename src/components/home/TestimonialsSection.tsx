@@ -79,7 +79,7 @@ export const TestimonialsSection = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-24">
-          <h2 className="text-5xl md:text-6xl font-black mb-6 tracking-tighter uppercase">What Our Customers Say</h2>
+          <h2 className="text-3xl md:text-4xl font-black mb-6 tracking-tighter uppercase">What Our Customers Say</h2>
           <p className="text-xl text-white/60 font-medium italic">Premium logistics experiences trusted by industry leaders.</p>
         </div>
 

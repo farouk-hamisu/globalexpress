@@ -22,20 +22,25 @@ import {
 } from 'lucide-react';
 import { format } from 'date-fns';
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
-import { useState } from 'react';
+import 'leaflet/dist/leaflet.css';
+import { useState, useEffect } from 'react';
 import PaymentModal from '../components/tracking/PaymentModal';
 
 // Fix Leaflet icon issue
 import icon from 'leaflet/dist/images/marker-icon.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
+import iconRetina from 'leaflet/dist/images/marker-icon-2x.png';
 
-let DefaultIcon = L.icon({
+const DefaultIcon = L.icon({
   iconUrl: icon,
+  iconRetinaUrl: iconRetina,
   shadowUrl: iconShadow,
   iconSize: [25, 41],
-  iconAnchor: [12, 41]
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
 });
 
 L.Marker.prototype.options.icon = DefaultIcon;
@@ -44,6 +49,13 @@ const TrackingPage = () => {
   const { trackingNumber } = useParams<{ trackingNumber: string }>();
   const [activeTab, setActiveTab] = useState<'info' | 'map' | 'timeline' | 'fees'>('info');
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+
+  // Force Leaflet to resize after tab change
+  useEffect(() => {
+    if (activeTab === 'map') {
+      window.dispatchEvent(new Event('resize'));
+    }
+  }, [activeTab]);
 
   const { data: shipment, isLoading, error } = useQuery({
     queryKey: ['shipment', trackingNumber],
@@ -133,7 +145,7 @@ const TrackingPage = () => {
                 </span>
                 <span className="text-white/60 text-sm">Tracking Number</span>
               </div>
-              <h1 className="text-3xl md:text-4xl font-bold">{shipment.tracking_number}</h1>
+              <h1 className="text-2xl md:text-3xl font-bold">{shipment.tracking_number}</h1>
             </div>
             
             <div className="flex flex-wrap gap-4">
@@ -271,34 +283,43 @@ const TrackingPage = () => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   />
-                  {/* Origin */}
-                  {shipment.sender_address && (
-                    <Marker position={[shipment.current_lat || 0, shipment.current_lng || 0]}>
+                  {/* Origin / Current Location */}
+                  {shipment.current_lat !== null && shipment.current_lng !== null && (
+                    <Marker 
+                      position={[shipment.current_lat, shipment.current_lng]}
+                      icon={DefaultIcon}
+                    >
                       <Popup>
-                        <div className="font-bold">Current Location</div>
-                        <div>{shipment.current_location}</div>
+                        <div className="font-bold text-primary">Current Location</div>
+                        <div className="text-sm">{shipment.current_location || 'Processing Hub'}</div>
                       </Popup>
                     </Marker>
                   )}
                   {/* Destination */}
-                  {shipment.destination_lat && shipment.destination_lng && (
-                    <Marker position={[shipment.destination_lat, shipment.destination_lng]}>
+                  {shipment.destination_lat !== null && shipment.destination_lng !== null && (
+                    <Marker 
+                      position={[shipment.destination_lat, shipment.destination_lng]}
+                      icon={DefaultIcon}
+                    >
                       <Popup>
-                        <div className="font-bold">Destination</div>
-                        <div>{shipment.destination}</div>
+                        <div className="font-bold text-secondary">Final Destination</div>
+                        <div className="text-sm">{shipment.destination || 'Delivery Point'}</div>
                       </Popup>
                     </Marker>
                   )}
                   {/* Route Line */}
-                  {shipment.destination_lat && shipment.destination_lng && (
+                  {shipment.current_lat !== null && shipment.current_lng !== null && 
+                   shipment.destination_lat !== null && shipment.destination_lng !== null && (
                     /* @ts-ignore */
                     <Polyline 
                       positions={[
-                        [shipment.current_lat || 0, shipment.current_lng || 0],
+                        [shipment.current_lat, shipment.current_lng],
                         [shipment.destination_lat, shipment.destination_lng]
                       ]} 
                       color="#003366" 
                       dashArray="10, 10"
+                      weight={2}
+                      opacity={0.6}
                     />
                   )}
                 </MapContainer>
