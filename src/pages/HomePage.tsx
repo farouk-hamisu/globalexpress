@@ -3,7 +3,7 @@ import {
   Search, Ship, Plane, Truck, Shield, Globe, 
   ArrowRight, 
   Headphones, Briefcase, 
-  ChevronRight, Play, Hash
+  ChevronRight, Hash
 } from 'lucide-react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';

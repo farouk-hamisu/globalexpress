@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { X, Save, RotateCcw, MapPin, Camera, Trash2, DollarSign } from 'lucide-react';
+import { X, Save, RotateCcw, MapPin, Camera, Trash2, DollarSign, Globe } from 'lucide-react';
 import type { Shipment } from '../../types';
 import { supabase } from '../../lib/supabase';
 import { toast } from 'react-hot-toast';
