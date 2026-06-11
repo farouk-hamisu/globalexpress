@@ -124,7 +124,11 @@ const AdminDashboard = () => {
                         {format(new Date(shipment.created_at), 'MMM dd, yyyy')}
                       </td>
                       <td className="px-8 py-5 text-right">
-                        <ArrowUpRight size={18} className="text-gray-300 group-hover:text-secondary cursor-pointer transition-all group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        <ArrowUpRight 
+                          size={18} 
+                          onClick={() => navigate('/admin/shipments', { state: { editShipmentId: shipment.id } })}
+                          className="text-gray-300 group-hover:text-secondary cursor-pointer transition-all group-hover:translate-x-1 group-hover:-translate-y-1" 
+                        />
                       </td>
                     </tr>
                   ))}
@@ -148,7 +152,7 @@ const AdminDashboard = () => {
                     {shipment.status}
                   </span>
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 pt-2 border-t border-gray-50">
                   <div>
                     <div className="text-[9px] font-black text-gray-400 uppercase tracking-widest mb-1">Recipient</div>
@@ -161,8 +165,11 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                 </div>
-                
-                <button className="w-full py-3 bg-gray-50 text-primary rounded-xl font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 border border-gray-100">
+
+                <button 
+                  onClick={() => navigate('/admin/shipments', { state: { editShipmentId: shipment.id } })}
+                  className="w-full py-3 bg-gray-50 text-primary rounded-xl font-black text-[10px] uppercase tracking-widest flex items-center justify-center gap-2 border border-gray-100"
+                >
                   Inspect Details <ArrowUpRight size={14} />
                 </button>
               </div>

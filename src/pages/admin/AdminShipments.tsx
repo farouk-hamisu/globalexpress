@@ -28,14 +28,6 @@ const AdminShipments = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (location.state?.openForm) {
-      handleCreate();
-      // Clear state to prevent reopening on refresh
-      navigate(location.pathname, { replace: true, state: {} });
-    }
-  }, [location.state, navigate, location.pathname]);
-
   const { data: shipments, isLoading } = useQuery({
     queryKey: ['admin-shipments'],
     queryFn: async () => {
@@ -47,6 +39,21 @@ const AdminShipments = () => {
       return data;
     }
   });
+
+  useEffect(() => {
+    if (location.state?.openForm) {
+      handleCreate();
+      // Clear state to prevent reopening on refresh
+      navigate(location.pathname, { replace: true, state: {} });
+    } else if (location.state?.editShipmentId && shipments) {
+      const shipment = shipments.find(s => s.id === location.state.editShipmentId);
+      if (shipment) {
+        handleEdit(shipment);
+      }
+      // Clear state
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location.state, navigate, location.pathname, shipments]);
 
   const deleteMutation = useMutation({
     mutationFn: async (id: string) => {
